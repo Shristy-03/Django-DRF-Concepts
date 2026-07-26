@@ -21,3 +21,5 @@ class StudentAPI(viewsets.ModelViewSet):
 class StudentAPI_1(viewsets.ReadOnlyModelViewSet):
     queryset=Student.objects.all()
     serializer_class=StudentSerializer
+    throttle_classes=[ScopedRateThrottle]
+    throttle_scope='StudentAPI'
